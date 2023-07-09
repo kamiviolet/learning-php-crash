@@ -1,6 +1,6 @@
 ## This is a forked repo to learn php (see below for the author info)
 
-My revision and additional notes from php official documentation are to be found inside Starter_kits folder
+My revision and additional notes from php official documentation are to be found inside starter_files folder
 
 *****
 

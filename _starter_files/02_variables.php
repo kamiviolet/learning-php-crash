@@ -132,6 +132,63 @@ echo PHP_EOL;
 echo 'string_01 is ' . $string_01 . 'and integer is ' . $integer;
 echo PHP_EOL;
 echo "string_2 is $string_02, and bool is $bool";
+echo "<br>";
 
 //coercion in JS is equivalent to  type-juggling in php;
 //but its not really necessary as php will intepret according to context - operator of sort;
+
+//Variable scope 
+// In PHP global variables must be declared global inside a function if they are going to be used in that function. 
+
+$a = 1; /* global scope */ 
+
+function test()
+{ 
+    global $a; //global keyword to connect local to global, else wont work
+    echo $a; /* reference to local scope variable */ 
+} 
+
+test();
+echo "<br>";
+
+//another way to do the same
+$a = 1;
+$b = 2;
+
+function Sum()
+{
+    $GLOBALS['b'] = $GLOBALS['a'] + $GLOBALS['b'];
+} 
+
+Sum();
+echo $b;
+echo "<br>";
+
+function static_test()
+{
+    $a = 0;
+    echo $a;
+    $a++;
+}
+echo static_test();
+echo static_test();
+echo static_test(); //always 0, will not increment
+echo "<br>";
+
+//with static keyword will behave differently
+function static_incl_test()
+{
+    static $a = 0;
+    echo $a;
+    $a++;
+}
+echo static_incl_test();
+echo static_incl_test();
+echo static_incl_test();
+echo "<br>";
+
+//Static variables can be assigned values which are the result of constant expressions, but dynamic expressions, such as function calls, will cause a parse error. 
+
+//a true global variable imported inside a function scope with the global statement actually creates a reference to the global variable. 
+
+//https://www.php.net/manual/en/language.variables.scope.php
